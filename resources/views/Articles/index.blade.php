@@ -24,7 +24,7 @@
 <td>{{$article->fournisseur->nom}} {{$article->fournisseur->prenom}}  </td>
 				<td>{{$article->categorie->nom}}</td>
 						<td>{{$article->designation}}</td>
-						<td>{{$article->prix}}</td> 
+						<td>{{$article->getprix()}}</td> 
 						<td>{{$article->quantite}}</td> 
 						
 

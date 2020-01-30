@@ -15,4 +15,15 @@ class Article extends Model
     public function categorie(){
     	return $this->belongsTo('App\Categorie');
     }
+
+
+    //Cette function n'est disponible en tant que methode de notre model.  $this->prix pour avoir accès au prix
+    public function getprix()
+    {
+    	$prix = $this->prix / 1000;
+
+    	return number_format($prix, '3', '.', ' ') . ' GNF';
+    }
 }
+
+
