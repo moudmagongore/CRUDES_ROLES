@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+<!-- Recaptcha -->
+@section('extra-js')
+	 {!! NoCaptcha::renderJs() !!}
+@stop
+<!-- End Recaptcha -->
+
 @section('content')
 
 <form action="" method="post">
@@ -18,6 +24,18 @@
 
 	            {!!$errors->first('nom', '<div class="invalid-feedback">:message</div>')!!}
 	        </div>
+
+	        <!-- Recaptcha -->
+				<div class="form-group">
+					{!! NoCaptcha::display() !!}
+
+					@if ($errors->has('g-recaptcha-response'))
+					    <span class="help-block">
+					        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+					    </span>
+					@endif
+				</div>
+				<!-- End Recaptcha -->
 
 			
 	        <div  class="form-group">

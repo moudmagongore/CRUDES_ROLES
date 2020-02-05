@@ -34,6 +34,9 @@ class ArticlesController extends Controller
             'designation' => 'required|min:2',
             'prix' => 'required|min:1',
             'quantite' => 'required|min:1',
+            /* Recaptcha*/
+            'g-recaptcha-response' => 'required|captcha'
+            /* End Recaptcha*/
         ]);
 
         $articles = Article::create([

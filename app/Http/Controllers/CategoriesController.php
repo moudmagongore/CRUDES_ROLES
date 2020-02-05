@@ -25,8 +25,12 @@ class CategoriesController extends Controller
     	$this->validate($request, [
 
     		'nom' => 'required|min:2',
+            /* Recaptcha*/
+            'g-recaptcha-response' => 'required|captcha',
+            /* End Recaptcha*/
 
     	]);
+        
 
     	$categories = Categorie::create([
 
@@ -60,7 +64,7 @@ class CategoriesController extends Controller
         return redirect()->route('liste-categories');
     }
 
-    public function destroy($id)
+    public function destroyCategorie($id)
     {
         Categorie::destroy($id);
 

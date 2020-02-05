@@ -46,7 +46,7 @@ Route::get('edit-categorie/{id}', 'CategoriesController@getEditCategorie')->name
 
 Route::post('edit-categorie/{id}', 'CategoriesController@postEditCategorie')->name('edit-categories');
 
-Route::post('destroy/{id}', 'CategoriesController@destroy')->name('destroy');
+Route::post('destroy/{id}', 'CategoriesController@destroyCategorie')->name('destroy');
 /*END CATEGORIE*/
 
 

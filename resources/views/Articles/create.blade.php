@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+<!-- Recaptcha -->
+@section('extra-js')
+	 {!! NoCaptcha::renderJs() !!}
+@stop
+<!-- End Recaptcha -->
+
 @section('content')
 
 <div class="card shadow mb-4">                  
@@ -58,11 +64,23 @@
 					{!!$errors->first('quantite', '<div class="invalid-feedback">:message</div>')!!}
 				</div>
 
+				<!-- Recaptcha -->
+				<div class="form-group">
+					{!! NoCaptcha::display() !!}
 
+					@if ($errors->has('g-recaptcha-response'))
+					    <span class="help-block">
+					        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+					    </span>
+					@endif
+				</div>
+				<!-- End Recaptcha -->
 				
 				<div class="form-group">
 					<input type="submit" name="Valider" value="Valider" class="btn btn-primary">
 				</div>
+
+				
 			</form>
 
 			
